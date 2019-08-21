@@ -17,13 +17,6 @@
 		</style>
 	</head>
 	<body>
-		<!-- 关键词1：行内元素幽灵空白字节，相当于行前或者行后，有个x就好理解了-->
-		<!-- 关键词2：vertical-align和line-height相互影响行内元素-->
-		<!-- 关键词3：行内元素基线，基线就是字母X的下边缘-->
-		
-		<!-- 关键结论1：对于内联元素，vertical-align与line-height虽然看不见，但实际上「到处都是」！默认vertical-align为baseline -->
-		<!-- 关键结论2：块状元素内部的内联元素的行为表现，就好像块状元素内部还有一个（更有可能两个-前后）看不见摸不着没有宽度没有实体的空白节点，这个假想又似乎存在的空白节点，称之为“幽灵空白节点” -->
-		<!-- 关键结论3：一个inline-block元素，如果里面没有inline内联元素，或者overflow不是visible，则该元素的基线就是其margin底边缘，否则，其基线就是元素里面最后一行内联元素的基线。-->
 		<div class="box" style="line-height: 0px;">
 			<img src="../../img/kttest.jpg" width="128">
 			<img src="../../img/kttest.jpg" width="128">
