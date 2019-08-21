@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>行内元素布局</title>
+		<style type="text/css">
+			.box {
+				margin-top: 20px;
+				text-align: justify;
+				background-color: antiquewhite;
+			}
+			.v-align-middle {
+				vertical-align: middle;
+			}
+			.v-align-top {
+				vertical-align: top;
+			}
+			.v-align-bottom {
+				vertical-align: bottom;
+			}
+			.bg-aliceblue {
+				background-color: aliceblue;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- ‘inline-block’的基线是正常流中最后一个line box的基线, 除非，这个line box里面既没有line boxes或者本身’overflow’属性的计算值而不是’visible’, 这种情况下基线是margin底边缘。 -->
+		<div class="box">
+			<span>x-asffwhK</span>
+		</div>
+		<!--  -->
+		<div class="box">
+			<!-- img后（或者前）相当于有一个幽灵字符, 所以img下有空隙-->
+			<img src="../../img/kttest.jpg" width="128" height="80">
+		</div>
+		<div class="box">
+			<img src="../../img/kttest.jpg" width="128" height="80">
+			<span>x-asffwhK</span>
+		</div>
+		<div class="box">
+			<img src="../../img/kttest.jpg" width="128" height="80">
+			<img class="v-align-middle" src="../../img/kttest.jpg" width="128" height="80">
+			<img class="v-align-top" src="../../img/kttest.jpg" width="64" height="40">
+			<img class="v-align-bottom" src="../../img/kttest.jpg" width="64" height="40">
+			<span class="bg-aliceblue">x-asffwhK</span>
+			<span class="bg-aliceblue">中文</span>
+		</div>
+		<div class="box" style="line-height: 160px;">
+			<!-- 因为vertical-align: middle，所以这个图片的中线与x的中心点对齐，这个图片不是完全垂直居中-->
+			<img class="v-align-middle" src="../../img/kttest.jpg" width="128" height="80">
+			<!-- 通过下面两个图 展示上图不是完全垂直居中的-->
+			<img class="v-align-top" src="../../img/kttest.jpg" width="128" height="80">
+			<!-- 因为x的中心点明显比下图的上边缘（即box的垂直居中线）略向下 而图片的中线是与x的中心点对齐，所以图片略向下，不是完全垂直居中-->
+			<img class="v-align-bottom" src="../../img/kttest.jpg" width="128" height="80">
+			<span class="bg-aliceblue">x-asffwhK</span>
+			<span class="bg-aliceblue">中文</span>
+		</div>
+		<!-- 完全垂直居中 font-size: 0px;-->
+		<div class="box" style="line-height: 160px;font-size: 0px;">
+			<img class="v-align-middle" src="../../img/kttest.jpg" width="128" height="80">
+			<div style="width: 128px;height: 40px;display: inline-block;background-color: #FFFF00;vertical-align: top;"></div>
+			<span class="bg-aliceblue">x-asffwhK</span>
+		</div>
+		<!-- 一个inline-block元素，如果里面没有inline内联元素，或者overflow不是visible，则该元素的基线就是其margin底边缘，否则，其基线就是元素里面最后一行内联元素的基线。 -->
+		<div class="box">
+			<img src="../../img/kttest.jpg" width="128" height="80">
+			<img src="../../img/kttest.jpg" width="128" height="80">
+			<img src="../../img/kttest.jpg" width="128" height="80">
+			<img src="../../img/kttest.jpg" width="128" height="80">
+			<span class="bg-aliceblue">x-asffwhK</span>
+		</div>
+	</body>
+</html>
