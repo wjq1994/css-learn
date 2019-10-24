@@ -9,3 +9,10 @@
 行内元素设置vertical-align: middle
 碰到其他诡异问题（考虑vertical-align，line-height, font-size, 还有幽灵空白元素）
 行内元素设置宽高没有用，行内元素由其内的元素决定宽高（auto*auto）
+
+#### 概念区分 (inline-box（行内框）、line-box（行框/行盒）、containing（包含） box 和 content area（内容区域）))
+
+#### 基线确定方式
+
+1. 行内元素，块状元素内部，inline-block元素内部（默认存在幽灵空白节点，相当于一个x在内部，基线也基于x的下边缘）
+2. inline-block元素，如果里面没有inline内联元素，或者overflow不是visible，则该元素的基线就是其margin底边缘，否则，其基线就是元素里面最后一行内联元素的基线。
